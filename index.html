@@ -12,9 +12,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -23,6 +24,7 @@
       <nav aria-label="Main navigation">
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
+        <a href="#map">Map</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -34,94 +36,42 @@
         <div class="hero-copy">
           <p class="eyebrow">Business Consultant / Munich, Germany</p>
           <h1 id="hero-title">Felix<br /><em>Schaefer</em></h1>
-          <p class="hero-intro">Dedicated, inquisitive and team-orientated. I turn complex challenges into clear, collaborative progress.</p>
+          <p class="hero-intro">Dedicated, inquisitive and team-orientated.</p>
+          <div class="hero-contact-grid" aria-label="Contact details">
+            <a class="hero-contact-link" href="mailto:schaefer-felix99@web.de"><span>E-mail</span>schaefer-felix99@web.de <b aria-hidden="true">&#8599;</b></a>
+            <a class="hero-contact-link" href="tel:+4917647798557"><span>Phone</span>+49 176 47798557 <b aria-hidden="true">&#8599;</b></a>
+            <p><span>Location</span>Munich, Germany</p>
+          </div>
           <div class="hero-actions">
             <a class="button button-light" href="#experience">Explore my work <span aria-hidden="true">&#8595;</span></a>
             <a class="text-link" href="CV_Felix%20Schaefer.pdf" target="_blank" rel="noreferrer">Download CV <span aria-hidden="true">&#8599;</span></a>
           </div>
         </div>
-        <div class="hero-art" aria-label="Felix Schaefer monogram illustration">
-          <div class="orbit orbit-one"></div>
-          <div class="orbit orbit-two"></div>
-          <div class="hero-monogram">F<span>S</span></div>
-          <p class="art-caption">Strategy / Growth / Aviation</p>
-          <span class="coordinate coordinate-one">48.1351 N</span>
-          <span class="coordinate coordinate-two">11.5820 E</span>
-        </div>
-      </section>
-
-      <section class="intro-strip" aria-label="Professional summary">
-        <p>Currently helping teams move from <strong>ambition</strong> to <strong>execution</strong> at BearingPoint.</p>
-        <span>01 / 04</span>
       </section>
 
       <section class="section experience" id="experience" aria-labelledby="experience-title">
         <div class="section-heading">
           <p class="eyebrow">01 / Experience</p>
-          <h2 id="experience-title">Work shaped by<br /><em>curiosity.</em></h2>
+          <h2 id="experience-title">Professional<br /><em>experience.</em></h2>
         </div>
-        <div class="timeline">
-          <article class="role role-current">
-            <div class="role-meta"><span>03/2026 - present</span><span>Munich</span></div>
-            <div class="role-main">
-              <p class="company">BearingPoint GmbH</p>
-              <h3>Business Consultant</h3>
-              <ul>
-                <li>Coordinate and supervise several projects within the project management office.</li>
-                <li>Support business development by identifying opportunities to expand the client base.</li>
-              </ul>
-            </div>
-          </article>
-          <article class="role">
-            <div class="role-meta"><span>09/2024 - 02/2026</span><span>Munich</span></div>
-            <div class="role-main">
-              <p class="company">BearingPoint GmbH</p>
-              <h3>Senior Business Analyst</h3>
-              <ul>
-                <li>Created aviation industry training materials for effective knowledge transfer.</li>
-                <li>Designed and developed content for several client workshops.</li>
-              </ul>
-            </div>
-          </article>
-          <article class="role">
-            <div class="role-meta"><span>11/2023 - 02/2024</span><span>Muenster</span></div>
-            <div class="role-main">
-              <p class="company">Atruvia AG</p>
-              <h3>Working Student, Marketing</h3>
-              <ul>
-                <li>Created and analysed complex internal and client-facing surveys.</li>
-                <li>Advised internal and external stakeholders and led the transition to MS Forms.</li>
-              </ul>
-            </div>
-          </article>
-          <article class="role">
-            <div class="role-meta"><span>07/2021 - 12/2021</span><span>Salzburg</span></div>
-            <div class="role-main">
-              <p class="company">Porsche Austria GmbH &amp; Co OG</p>
-              <h3>Intern, Brand Management</h3>
-              <ul>
-                <li>Created, dispatched and analysed newsletters to improve campaign performance.</li>
-                <li>Maintained VW Austria web content and supported SEO and SEA optimisation.</li>
-              </ul>
-            </div>
-          </article>
-          <article class="role">
-            <div class="role-meta"><span>09/2019 - 02/2020</span><span>Vienna</span></div>
-            <div class="role-main">
-              <p class="company">Austrian Airlines AG</p>
-              <h3>Intern, Flight Ops &amp; Travel</h3>
-              <ul>
-                <li>Researched hotel and transportation partners and processed tenders.</li>
-                <li>Supported supplier communication and organised department-wide team activities.</li>
-              </ul>
-            </div>
-          </article>
+        <div class="experience-accordions">
+          <details class="experience-card" open>
+            <summary><img class="company-logo" src="assets/logos/bearingpoint.svg" alt="BearingPoint logo" /><span class="experience-summary"><strong>BearingPoint GmbH</strong><small>Business Consultant / Senior Business Analyst</small><span class="experience-tags"><i>PMO</i><i>Business Development</i><i>Workshops</i></span></span><span class="experience-date">09/2024 - today<br /><small>Munich</small></span><span class="accordion-icon" aria-hidden="true">+</span></summary>
+            <div class="experience-content"><div><p class="role-label">Business Consultant / since 03.2026</p><p>Coordinate and supervise several projects within the project management office and support business development through new client opportunities.</p><p class="role-label">Senior Business Analyst / 09.2024 - 02.2026</p><p>Created aviation industry training materials and designed content for client workshops.</p></div><div><p class="role-label">Skills used</p><ul class="inline-skills"><li>PMO</li><li>Business Development</li><li>Workshop Design</li><li>Confluence</li><li>Jira</li></ul></div></div>
+          </details>
+          <details class="experience-card">
+            <summary><img class="company-logo" src="assets/logos/atruvia.svg" alt="Atruvia logo" /><span class="experience-summary"><strong>Atruvia AG</strong><small>Working Student, Marketing</small><span class="experience-tags"><i>Survey Analytics</i><i>MS Forms</i><i>Marketing</i></span></span><span class="experience-date">11/2023 - 02/2024<br /><small>Münster</small></span><span class="accordion-icon" aria-hidden="true">+</span></summary>
+            <div class="experience-content"><div><p>Created and analysed internal and client-facing surveys, advised stakeholders and led the transition to MS Forms.</p></div><div><p class="role-label">Skills used</p><ul class="inline-skills"><li>Survey Analytics</li><li>MS Forms</li><li>Marketing</li></ul></div></div>
+          </details>
+          <details class="experience-card">
+            <summary><img class="company-logo" src="assets/logos/porsche.svg" alt="Porsche Holding logo" /><span class="experience-summary"><strong>Porsche Austria GmbH &amp; Co OG</strong><small>Intern, Brand Management</small><span class="experience-tags"><i>Brand Management</i><i>SEO</i><i>SEA</i></span></span><span class="experience-date">07/2021 - 12/2021<br /><small>Salzburg</small></span><span class="accordion-icon" aria-hidden="true">+</span></summary>
+            <div class="experience-content"><div><p>Created, dispatched and analysed newsletters; maintained VW Austria web content and supported SEO and SEA optimisation.</p></div><div><p class="role-label">Skills used</p><ul class="inline-skills"><li>Brand Management</li><li>SEO</li><li>SEA</li><li>Content</li></ul></div></div>
+          </details>
+          <details class="experience-card">
+            <summary><img class="company-logo" src="assets/logos/austrian.svg" alt="Austrian Airlines logo" /><span class="experience-summary"><strong>Austrian Airlines AG</strong><small>Intern, Flight Ops &amp; Travel</small><span class="experience-tags"><i>Market Research</i><i>Tenders</i><i>Supplier Management</i></span></span><span class="experience-date">09/2019 - 02/2020<br /><small>Vienna</small></span><span class="accordion-icon" aria-hidden="true">+</span></summary>
+            <div class="experience-content"><div><p>Researched hotel and transportation partners, processed tenders and supported supplier communication and team activities.</p></div><div><p class="role-label">Skills used</p><ul class="inline-skills"><li>Market Research</li><li>Tenders</li><li>Supplier Management</li></ul></div></div>
+          </details>
         </div>
-      </section>
-
-      <section class="quote-block" aria-label="Personal statement">
-        <p>“The best solutions are built<br />with <em>clarity</em> and <em>people.</em>”</p>
-        <span>Felix Schaefer</span>
       </section>
 
       <section class="section education" id="education" aria-labelledby="education-title">
@@ -129,58 +79,71 @@
           <p class="eyebrow">02 / Education</p>
           <h2 id="education-title">Built on a global<br /><em>perspective.</em></h2>
         </div>
-        <div class="education-list">
-          <article class="education-item">
-            <p class="education-date">03/2022 - 07/2024</p>
-            <div><h3>Master of Arts</h3><p>International Marketing and Sales</p><span>FH Muenster / Grade 1.9</span></div>
-          </article>
-          <article class="education-item compact">
-            <p class="education-date">02/2023 - 06/2023</p>
-            <div><h3>Semester Abroad</h3><p>Krakow University of Economics</p></div>
-          </article>
-          <article class="education-item">
-            <p class="education-date">10/2017 - 08/2021</p>
-            <div><h3>Bachelor of Arts</h3><p>Business Administration</p><span>Campus Burghausen / Grade 2.1</span></div>
-          </article>
-          <article class="education-item compact">
-            <p class="education-date">09/2015 - 06/2017</p>
-            <div><h3>Vocational Baccalaureate Diploma</h3><p>FOS Traunstein / Grade 2.4</p></div>
-          </article>
+        <div class="education-cards">
+          <article class="education-card"><span class="school-mark">FH</span><div><h3>FH Münster</h3><p>Master of Arts, International Marketing and Sales</p><small>03/2022 - 07/2024 · Münster, DE</small><b>Grade 1.9</b></div></article>
+          <article class="education-card"><span class="school-mark">UEK</span><div><h3>Kraków University of Economics</h3><p>Semester Abroad</p><small>02/2023 - 06/2023 · Kraków, PL</small></div></article>
+          <article class="education-card"><span class="school-mark">CB</span><div><h3>Campus Burghausen</h3><p>Bachelor of Arts, Business Administration</p><small>10/2017 - 08/2021 · Burghausen, DE</small><b>Grade 2.1</b></div></article>
+          <article class="education-card"><span class="school-mark">FOS</span><div><h3>FOS Traunstein</h3><p>Vocational Baccalaureate Diploma</p><small>09/2015 - 06/2017 · Traunstein, DE</small><b>Grade 2.4</b></div></article>
+        </div>
+      </section>
+
+      <section class="map-section" id="map" aria-labelledby="map-title">
+        <div class="map-heading">
+          <div>
+            <p class="eyebrow">03 / Places</p>
+            <h2 id="map-title">Where I've learned,<br /><em>worked and grown.</em></h2>
+          </div>
+          <p>Each pin marks a place that has shaped my professional and personal perspective. Select a category or a location to explore.</p>
+        </div>
+        <div class="map-filters" role="group" aria-label="Filter locations">
+          <button class="map-filter is-active" type="button" data-filter="all">All places <span>6</span></button>
+          <button class="map-filter" type="button" data-filter="work">Work <span>3</span></button>
+          <button class="map-filter" type="button" data-filter="education">Education <span>3</span></button>
+        </div>
+        <div class="map-layout">
+          <div id="leaflet-map" aria-label="Interactive map of professional and educational locations"></div>
+          <aside class="map-list" aria-label="Locations">
+            <button class="place-card is-active" type="button" data-place="munich">
+              <span class="place-type">Work / Home base</span><strong>Munich, Germany</strong><small>BearingPoint GmbH / 2024 - present</small>
+            </button>
+            <button class="place-card" type="button" data-place="muenster">
+              <span class="place-type">Education</span><strong>Münster, Germany</strong><small>FH Münster / 2022 - 2024</small>
+            </button>
+            <button class="place-card" type="button" data-place="burghausen">
+              <span class="place-type">Education</span><strong>Burghausen, Germany</strong><small>Campus Burghausen / 2017 - 2021</small>
+            </button>
+            <button class="place-card" type="button" data-place="krakow">
+              <span class="place-type">Education</span><strong>Kraków, Poland</strong><small>Semester abroad / 2023</small>
+            </button>
+            <button class="place-card" type="button" data-place="salzburg">
+              <span class="place-type">Work</span><strong>Salzburg, Austria</strong><small>Porsche Austria / 2021</small>
+            </button>
+            <button class="place-card" type="button" data-place="vienna">
+              <span class="place-type">Work</span><strong>Vienna, Austria</strong><small>Austrian Airlines / 2019 - 2020</small>
+            </button>
+          </aside>
         </div>
       </section>
 
       <section class="section skills" id="skills" aria-labelledby="skills-title">
         <div class="section-heading">
-          <p class="eyebrow">03 / Capabilities</p>
-          <h2 id="skills-title">Tools for moving<br /><em>work forward.</em></h2>
+          <p class="eyebrow">04 / Capabilities</p>
+          <h2 id="skills-title">Skills &amp;<br /><em>certificates.</em></h2>
         </div>
-        <div class="skills-layout">
-          <div class="skill-group">
-            <p class="group-label">Expertise</p>
-            <ul class="tag-list"><li>Project Management</li><li>Business Development</li><li>Workshop Design</li><li>Digital Marketing</li><li>Survey Analytics</li><li>SEO &amp; SEA</li></ul>
-          </div>
-          <div class="skill-group">
-            <p class="group-label">Platforms</p>
-            <ul class="tag-list"><li>MS Office</li><li>Confluence &amp; Jira</li><li>Salesforce Marketing Cloud</li><li>MS Forms</li></ul>
-          </div>
-          <div class="skill-group">
-            <p class="group-label">Certifications &amp; language</p>
-            <ul class="credential-list"><li><span>English</span><strong>C1 level</strong></li><li><span>Scrum Master &amp; Product Owner</span><strong>Certified</strong></li><li><span>PRINCE2 Foundation &amp; Practitioner</span><strong>Certified</strong></li><li><span>Salesforce AI Associate</span><strong>Certified</strong></li></ul>
-          </div>
+        <div class="capability-cards">
+          <article class="capability-card"><p class="group-label">Technical Know-How</p><ul class="tag-cloud"><li>MS Office (Advanced)</li><li>MS Copilot</li><li>LLMs (Claude, GPT, ...)</li><li>Salesforce</li><li>Mural</li><li>Confluence</li><li>Jira</li></ul></article>
+          <article class="capability-card"><p class="group-label">Certificates</p><ul class="tag-cloud"><li>Professional Scrum Master I (PSM I)</li><li>Professional Scrum Product Owner I (PSPO I)</li><li>PRINCE2 Foundation</li><li>PRINCE2 Practitioner</li></ul></article>
+          <article class="capability-card"><p class="group-label">Languages</p><div class="language"><div><span>German</span><strong>Native</strong></div><i style="--level: 100%"></i></div><div class="language"><div><span>English</span><strong>C1</strong></div><i style="--level: 82%"></i></div></article>
         </div>
-      </section>
-
-      <section class="interests" aria-labelledby="interests-title">
-        <div><p class="eyebrow">04 / Beyond work</p><h2 id="interests-title">Always looking<br />for the next <em>horizon.</em></h2></div>
-        <ul><li>Sports &amp; new challenges</li><li>Travel &amp; foreign cultures</li><li>Fiction &amp; non-fiction</li><li>Aviation &amp; aircraft</li></ul>
       </section>
     </main>
 
     <footer id="contact">
       <p class="eyebrow">Let's connect</p>
       <a class="footer-mail" href="mailto:schaefer-felix99@web.de">schaefer-felix99@web.de <span aria-hidden="true">&#8599;</span></a>
-      <div class="footer-bottom"><span>Felix Schaefer / 2026</span><a href="tel:+4917647798557">+49 176 47798557</a><a href="#top">Back to top &#8593;</a></div>
+      <div class="footer-bottom"><span>Felix Schaefer / 2026</span><a href="tel:+4917647798557">+49 176 47798557</a><a href="https://www.linkedin.com/in/felix-schaefer-33762b182/" target="_blank" rel="noreferrer">LinkedIn &#8599;</a><a href="#top">Back to top &#8593;</a></div>
     </footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

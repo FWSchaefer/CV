@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 64" role="img" aria-label="Austrian Airlines">
+  <text x="2" y="45" fill="#e22814" font-family="Georgia, serif" font-size="44">Austrian</text>
+  <path d="M172 35 250 16 198 42 230 47 195 58 211 45z" fill="#e22814"/>
+  <path d="M201 45 239 48 194 60 210 48z" fill="#c7c7c7"/>
+</svg>

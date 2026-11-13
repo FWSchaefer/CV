@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 64" role="img" aria-label="BearingPoint">
+  <rect width="64" height="64" rx="12" fill="#ffffff" stroke="#071d3a" stroke-width="3"/>
+  <text x="15" y="46" fill="#071d3a" font-family="Arial, sans-serif" font-size="43" font-weight="700">B</text>
+  <circle cx="48" cy="18" r="5" fill="#071d3a"/>
+  <text x="76" y="39" fill="#071d3a" font-family="Arial, sans-serif" font-size="19" font-weight="700">BearingPoint</text>
+</svg>
