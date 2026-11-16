@@ -8,12 +8,12 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 });
 
 const places = [
-  { id: 'munich', name: 'Munich', country: 'Germany', type: 'work', coordinates: [48.1372, 11.5756], detail: 'BearingPoint GmbH / 2024 - present', logo: 'BearingPoint', logoSrc: 'assets/logos/bearingpoint.svg' },
-  { id: 'muenster', name: 'Münster', country: 'Germany', type: 'education', coordinates: [51.9607, 7.6261], detail: 'FH Münster / 2022 - 2024', logo: 'FH', logoClass: 'school-mark' },
-  { id: 'burghausen', name: 'Burghausen', country: 'Germany', type: 'education', coordinates: [48.1689, 12.831], detail: 'Campus Burghausen / 2017 - 2021', logo: 'CB', logoClass: 'school-mark' },
-  { id: 'krakow', name: 'Kraków', country: 'Poland', type: 'education', coordinates: [50.0647, 19.945], detail: 'Kraków University of Economics / 2023', logo: 'UEK', logoClass: 'school-mark' },
-  { id: 'salzburg', name: 'Salzburg', country: 'Austria', type: 'work', coordinates: [47.8095, 13.055], detail: 'Porsche Austria / 2021', logo: 'Porsche', logoSrc: 'assets/logos/porsche.svg' },
-  { id: 'vienna', name: 'Vienna', country: 'Austria', type: 'work', coordinates: [48.2082, 16.3738], detail: 'Austrian Airlines / 2019 - 2020', logo: 'Austrian Airlines', logoSrc: 'assets/logos/austrian.svg' },
+  { id: 'munich', name: 'Munich', country: 'Germany', type: 'work', coordinates: [48.1372, 11.5756], detail: 'BearingPoint GmbH / 2024 - present' },
+  { id: 'muenster', name: 'Münster', country: 'Germany', type: 'education', coordinates: [51.9607, 7.6261], detail: 'FH Münster / 2022 - 2024' },
+  { id: 'burghausen', name: 'Burghausen', country: 'Germany', type: 'education', coordinates: [48.1689, 12.831], detail: 'Campus Burghausen / 2017 - 2021' },
+  { id: 'krakow', name: 'Kraków', country: 'Poland', type: 'education', coordinates: [50.0647, 19.945], detail: 'Kraków University of Economics / 2023' },
+  { id: 'salzburg', name: 'Salzburg', country: 'Austria', type: 'work', coordinates: [47.8095, 13.055], detail: 'Porsche Austria / 2021' },
+  { id: 'vienna', name: 'Vienna', country: 'Austria', type: 'work', coordinates: [48.2082, 16.3738], detail: 'Austrian Airlines / 2019 - 2020' },
 ];
 
 if (window.L) {
@@ -40,11 +40,8 @@ if (window.L) {
   };
 
   places.forEach((place) => {
-    const popupLogo = place.logoSrc
-      ? `<img class="map-logo" src="${place.logoSrc}" alt="${place.logo} logo">`
-      : `<span class="${place.logoClass} map-school-mark">${place.logo}</span>`;
     const marker = L.marker(place.coordinates, { icon: markerIcon(place.type), title: `${place.name}, ${place.country}` })
-      .bindPopup(`<div class="map-popup">${popupLogo}<span>${place.type === 'work' ? 'WORK' : 'EDUCATION'}</span><strong>${place.name}, ${place.country}</strong><p>${place.detail}</p></div>`, { offset: [0, -4] })
+      .bindPopup(`<div class="map-popup"><span>${place.type === 'work' ? 'WORK' : 'EDUCATION'}</span><strong>${place.name}, ${place.country}</strong><p>${place.detail}</p></div>`, { offset: [0, -4] })
       .addTo(map)
       .on('click', () => setActivePlace(place, false));
     markers.set(place.id, marker);

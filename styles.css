@@ -13,7 +13,7 @@ body { margin: 0; background: var(--white); color: var(--blue); font: 16px/1.5 v
 a { color: inherit; text-decoration: none; }
 
 .site-header {
-  position: sticky; top: 0; z-index: 10; height: 72px; padding: 0 6vw;
+  position: sticky; top: 0; z-index: 1000; height: 72px; padding: 0 6vw;
   display: flex; align-items: center; justify-content: space-between;
   border-bottom: 1px solid var(--line); background: var(--white);
 }
@@ -92,22 +92,28 @@ footer { padding: 100px 8vw 27px; background: var(--blue); color: var(--white); 
 .hero-art { display: none; }
 .hero-contact-link { font-weight: 600; text-decoration: underline; text-underline-offset: 5px; }
 .hero-contact-link b { margin-left: 3px; font-weight: 400; }
+.hero-contact-grid { grid-template-columns: 1.45fr 1fr 1fr; }
+.hero-contact-link { white-space: nowrap; }
 
 .experience-accordions { display: grid; gap: 14px; border: 0; }
 .experience-card { border: 1px solid var(--line); border-left: 4px solid var(--blue); border-radius: 14px; background: var(--white); box-shadow: 0 10px 22px rgba(7,29,58,.08); }
 .experience-card summary { grid-template-columns: 146px minmax(0, 1fr) 145px 26px; align-items: start; padding: 24px; }
 .company-logo { width: 134px; height: 48px; object-fit: contain; object-position: left center; }
+.company-logo--mark { width: 58px; }
 .experience-summary strong { font-size: 19px; }
 .experience-summary small { font: 14px var(--sans); text-transform: none; }
 .experience-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
 .experience-tags i, .inline-skills li { padding: 5px 9px; border: 1px solid var(--line); border-radius: 100px; font-size: 11px; font-style: normal; }
+.inline-logo { width: 20px; height: 20px; margin: -2px 0; object-fit: contain; }
 .experience-date { text-align: right; font-size: 14px; font-weight: 600; }
 .experience-date small { color: var(--blue-soft); font-weight: 400; }
 .experience-content { padding: 0 24px 24px 190px; }
+.experience-points { margin: 0; padding-left: 19px; }.experience-points li { margin-bottom: 9px; }.experience-points li:last-child { margin-bottom: 0; }
 
 .education-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .education-card { display: grid; grid-template-columns: 66px 1fr; gap: 16px; min-height: 202px; padding: 24px; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 10px 22px rgba(7,29,58,.08); }
 .school-mark { display: grid; width: 54px; height: 54px; place-items: center; border: 1px solid var(--line); border-radius: 14px; font-size: 12px; font-weight: 700; }
+.school-mark img { width: 43px; height: 43px; object-fit: contain; }
 .education-card h3 { margin: 0; font-size: 19px; letter-spacing: -.035em; }
 .education-card p { margin: 7px 0 9px; font-size: 16px; }
 .education-card small { display: block; color: var(--blue-soft); }
@@ -122,9 +128,154 @@ footer { padding: 100px 8vw 27px; background: var(--blue); color: var(--white); 
 .tag-cloud li { padding: 7px 10px; border: 1px solid var(--line); border-radius: 100px; font-size: 13px; }
 .language i { border-radius: 100px; }.language i::after { border-radius: inherit; }
 
+#skills.section { display: block; }
+#skills .section-heading { margin-bottom: 46px; }
+#skills .section-heading h2 { max-width: none; }
+#skills .capability-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; }
+
+#experience.section, #education.section { display: block; }
+#experience .section-heading, #education .section-heading { margin-bottom: 46px; }
+#experience .section-heading h2, #education .section-heading h2 { max-width: none; }
+
+/* Larger, proportionally scaled logo areas */
+.experience-card summary { grid-template-columns: 220px minmax(0, 1fr) 145px 26px; }
+.company-logo { width: 100%; max-width: 205px; height: 76px; object-fit: contain; object-position: left center; }
+.education-card { grid-template-columns: 150px 1fr; align-items: start; }
+.school-mark { width: 130px; height: 90px; border: 0; border-radius: 0; background: var(--white); overflow: visible; }
+.school-mark img { display: block; width: 100%; height: 100%; padding: 0; object-fit: contain; object-position: center; }
+.map-logo { width: 185px; max-width: 100%; height: 58px; object-fit: contain; object-position: left center; }
+
+@media (max-width: 780px) {
+  .company-logo { width: 180px; max-width: 100%; height: 70px; }
+  .education-card { grid-template-columns: 120px 1fr; }
+  .school-mark { width: 105px; height: 78px; }
+}
+
+/* Text-only cards with consistent alignment */
+.experience-card summary { grid-template-columns: minmax(0, 1fr) 145px 26px; }
+.experience-content { padding: 0 24px 24px; }
+.education-card { grid-template-columns: 1fr; }
+#education.section { display: block; }
+#education .section-heading { width: 100%; margin-bottom: 46px; }
+#education .education-cards { width: 100%; }
+
+/* Independent one-page portfolio refinement */
+body { background: #f5f7fb; }
+.site-header { height: 70px; padding: 0 max(5vw, calc((100vw - 1180px) / 2)); border-bottom-color: rgba(7,29,58,.12); box-shadow: 0 2px 15px rgba(7,29,58,.03); }
+.wordmark { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid rgba(7,29,58,.16); border-radius: 12px; white-space: nowrap; }
+nav { gap: 23px; }
+.hero { max-width: 1180px; min-height: 570px; margin: 38px auto 0; grid-template-columns: 1.08fr .92fr; border-radius: 24px; background: var(--white); color: var(--blue); overflow: hidden; box-shadow: 0 16px 42px rgba(7,29,58,.08); }
+.hero-copy { min-height: auto; padding: 7vw 6.5vw; }
+.hero h1 { font-size: clamp(64px, 7vw, 100px); line-height: .88; }.hero-intro { max-width: 430px; margin: 28px 0 24px; font-size: 20px; }.hero-contact-grid a, .hero-contact-grid p { color: var(--blue); }.hero-contact-grid span { color: var(--blue); opacity: .6; }.button { border-color: var(--blue); }.button-light { background: var(--blue); color: var(--white); }.button:hover { background: var(--white); color: var(--blue); }.text-link { border-bottom-color: var(--blue); }
+.hero-portrait { min-height: 570px; background: #edf2f7; }.hero-portrait::before { background: linear-gradient(90deg, var(--white) 0%, rgba(255,255,255,.18) 24%, transparent 54%); }.hero-portrait img { object-position: 50% 10%; filter: brightness(1.04) contrast(.97); mask-image: none; }
+.section, .map-section { max-width: 1180px; margin: 0 auto; padding: 88px 0; }.section-heading h2, .map-heading h2 { font-size: clamp(42px, 4.4vw, 66px); letter-spacing: -.06em; }.section-heading .eyebrow, .map-heading .eyebrow { color: var(--blue-soft); }
+.experience-card, .education-card, .capability-card { border-color: rgba(7,29,58,.13); box-shadow: 0 8px 24px rgba(7,29,58,.06); }.experience-card { border-left-width: 3px; }.experience-card summary { padding: 22px 24px; }.experience-content { background: rgba(7,29,58,.025); border-radius: 0 0 13px 13px; }
+.education-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }.education-card { grid-template-columns: 1fr; min-height: 250px; }.school-mark { width: 140px; height: 76px; }.education-card p { font-size: 15px; }
+.map-section { background: transparent; color: var(--blue); }.map-heading > p { color: var(--blue-soft); }.map-filter { border-color: rgba(7,29,58,.18); color: var(--blue); }.map-filter:hover, .map-filter.is-active { background: var(--blue); color: var(--white); }.map-layout { border-color: rgba(7,29,58,.15); border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(7,29,58,.06); }.map-list { background: var(--white); }.place-card { color: var(--blue); border-bottom-color: rgba(7,29,58,.12); }.place-card:hover, .place-card.is-active { background: var(--blue); color: var(--white); }
+.capability-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }.capability-card { background: var(--white); min-height: 245px; }.tag-cloud li { background: #f7f9fc; }
+footer { margin-top: 36px; padding-left: max(8vw, calc((100vw - 1180px) / 2)); padding-right: max(8vw, calc((100vw - 1180px) / 2)); }
+@media (max-width: 1200px) { .hero, .section, .map-section { margin-left: 5vw; margin-right: 5vw; }.section, .map-section { padding-left: 0; padding-right: 0; }.education-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 780px) { .site-header { padding: 0 7vw; }.hero { margin: 0; border-radius: 0; grid-template-columns: 1fr; }.hero-copy { padding: 82px 7vw 56px; }.hero-portrait { min-height: 430px; }.section, .map-section { margin-left: 7vw; margin-right: 7vw; padding-top: 72px; padding-bottom: 72px; }.education-cards, .capability-cards { grid-template-columns: 1fr; }.education-card { grid-template-columns: 120px 1fr; min-height: auto; }.school-mark { width: 108px; height: 74px; }.map-section { margin-left: 0; margin-right: 0; padding-left: 7vw; padding-right: 7vw; }.map-layout { border-radius: 0; } }
+
 @media (max-width: 780px) {
   .experience-card summary { grid-template-columns: 1fr 22px; gap: 14px; }
   .company-logo { width: 140px; }.experience-summary, .experience-date { grid-column: 1; }.experience-date { text-align: left; }
   .experience-content { grid-template-columns: 1fr; gap: 16px; padding: 0 20px 20px; }
   .education-cards { grid-template-columns: 1fr; }
+}
+
+/* Portrait and logo normalization */
+.hero { grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr); overflow: hidden; }
+.hero-copy { max-width: none; }
+.hero-portrait { position: relative; min-height: calc(100vh - 72px); overflow: hidden; background: var(--white); }
+.hero-portrait::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, var(--blue) 0%, rgba(7,29,58,.22) 12%, transparent 34%); pointer-events: none; }
+.hero-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 48% 8%; filter: brightness(1.06) contrast(.96); mask-image: radial-gradient(ellipse 82% 98% at 55% 46%, #000 70%, transparent 100%); }
+.company-logo { display: block; width: 100%; max-width: 148px; height: 54px; object-fit: contain; object-position: left center; image-rendering: auto; }
+.company-logo--mark { width: 58px; max-width: 58px; }
+.school-mark { overflow: hidden; }.school-mark img { display: block; width: 100%; height: 100%; padding: 5px; object-fit: contain; image-rendering: auto; }
+.inline-logo { display: block; width: 20px; height: 20px; object-fit: contain; }
+.map-logo { width: 140px; max-width: 100%; height: 42px; object-fit: contain; object-position: left center; }
+
+/* Keep content cards directly below their section headings. */
+#experience.section, #education.section { display: block; }
+#experience .section-heading, #education .section-heading { margin-bottom: 46px; }
+.experience-content { display: block; }
+.experience-points { max-width: 900px; }
+.education-card b { border-color: var(--blue); background: var(--blue); color: var(--white); }
+
+/* Education uses the same spacious, full-width card language as experience. */
+.education-cards { grid-template-columns: 1fr; gap: 14px; }
+.education-card { min-height: 0; padding: 24px; border-left: 3px solid var(--blue); border-radius: 14px; background: var(--white); box-shadow: 0 8px 24px rgba(7,29,58,.06); }
+.education-card h3 { font-size: 20px; }
+.education-card p { max-width: 680px; margin-top: 8px; font-size: 18px; }
+.education-card small { margin-top: 10px; font: 11px var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+.education-card b { margin-top: 16px; padding: 6px 10px; }
+
+/* Compact education cards follow the requested reference layout. */
+.education-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.education-card { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 16px; min-height: 230px; padding: 20px; border: 1px solid rgba(7,29,58,.12); border-left: 1px solid rgba(7,29,58,.12); border-radius: 14px; align-items: start; }
+.education-mark { display: grid; width: 52px; height: 52px; place-items: center; border: 1px solid rgba(7,29,58,.13); border-radius: 13px; background: #f7f9fc; color: var(--blue); font: 600 10px var(--mono); letter-spacing: .02em; }
+.education-card h3 { font-size: 18px; line-height: 1.45; }
+.education-card p { margin: 4px 0 6px; font-size: 16px; line-height: 1.45; }
+.education-card small { margin-top: 0; font: 13px var(--sans); letter-spacing: 0; text-transform: none; line-height: 1.45; }
+.education-card b { margin-top: 12px; border: 0; background: #e9f9ee; color: #06783e; font-size: 11px; }
+
+@media (max-width: 980px) { .education-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .education-cards { grid-template-columns: 1fr; }.education-card { min-height: 0; } }
+
+/* Use the full viewport width instead of a centered portfolio canvas. */
+.hero { max-width: none; margin: 0; border-radius: 0; }
+.section, .map-section { max-width: none; margin: 0; padding: 88px 8vw; }
+.education { background: transparent; }
+
+@media (max-width: 780px) {
+  .section, .map-section { margin: 0; padding: 72px 7vw; }
+}
+
+/* Dark hero panel with an unfiltered, sharp portrait treatment. */
+.hero { background: var(--blue); color: var(--white); }
+.hero .eyebrow, .hero-contact-grid a, .hero-contact-grid p, .hero-contact-grid span { color: var(--white); }
+.hero .button { border-color: var(--white); }
+.hero .button-light { background: var(--white); color: var(--blue); }
+.hero .button:hover { background: transparent; color: var(--white); }
+.hero .text-link { border-bottom-color: var(--white); }
+.hero-portrait img { filter: none; mask-image: none; image-rendering: auto; object-position: 50% 8%; }
+
+/* Subtle technical line work gives the hero depth without competing with the portrait. */
+.hero-copy { position: relative; overflow: hidden; }
+.hero-copy > * { position: relative; z-index: 1; }
+.hero-copy::before, .hero-copy::after { content: ""; position: absolute; border: 1px solid rgba(255,255,255,.12); border-radius: 50%; pointer-events: none; }
+.hero-copy::before { width: 520px; height: 520px; top: -255px; left: -190px; }
+.hero-copy::after { width: 310px; height: 310px; right: -150px; bottom: -160px; }
+
+.stats-strip { display: grid; grid-template-columns: repeat(3, 1fr); padding: 0 8vw; background: #edf1f7; }
+.stats-strip div { display: flex; align-items: baseline; gap: 11px; min-height: 82px; padding: 20px 28px; border-right: 1px solid var(--line); }
+.stats-strip div:first-child { padding-left: 0; }.stats-strip div:last-child { border-right: 0; }
+.stats-strip strong { font-size: 23px; letter-spacing: -.05em; white-space: nowrap; }
+.stats-strip span { color: var(--blue-soft); font: 10px var(--mono); letter-spacing: .05em; text-transform: uppercase; }
+
+.experience-card, .education-card, .capability-card { transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.experience-card:hover, .education-card:hover, .capability-card:hover { transform: translateY(-4px); border-color: rgba(7,29,58,.3); box-shadow: 0 15px 30px rgba(7,29,58,.11); }
+.experience-tags i, .tag-cloud li, .inline-skills li { transition: transform .18s ease, background .18s ease, color .18s ease, border-color .18s ease; }
+.experience-tags i:hover, .tag-cloud li:hover, .inline-skills li:hover { transform: translateY(-2px); border-color: var(--blue); background: var(--blue); color: var(--white); }
+
+@media (max-width: 780px) {
+  .stats-strip { grid-template-columns: 1fr; padding: 0 7vw; }.stats-strip div { min-height: 0; padding: 18px 0; border-right: 0; border-bottom: 1px solid var(--line); }.stats-strip div:last-child { border-bottom: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-card, .education-card, .capability-card, .experience-tags i, .tag-cloud li, .inline-skills li { transition: none; }
+  .experience-card:hover, .education-card:hover, .capability-card:hover, .experience-tags i:hover, .tag-cloud li:hover, .inline-skills li:hover { transform: none; }
+}
+
+/* A slightly more compact first impression while retaining portrait presence. */
+.hero-portrait { min-height: 620px; }
+@media (max-width: 780px) { .hero-portrait { min-height: 350px; } }
+
+@media (max-width: 780px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-copy { min-height: auto; }
+  .hero-portrait { min-height: 390px; }
+  .hero-portrait::before { background: linear-gradient(0deg, rgba(7,29,58,.3) 0%, transparent 27%); }
+  .hero-portrait img { object-position: 50% 15%; mask-image: radial-gradient(ellipse 90% 100% at 50% 48%, #000 65%, transparent 100%); }
 }
